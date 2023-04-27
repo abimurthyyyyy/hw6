@@ -6,7 +6,7 @@ GTESTLIBS := -lgtest -lgtest_main  -lpthread
 #DEFS=-DDEBUG
 
 
-all: ht-test str-hash-test hash-check boggle-driver 
+all: str-hash-test ht-test hash-check boggle-driver 
 
 boggle-driver: boggle.cpp boggle.h boggle-driver.cpp
 	$(CXX) $(CXXFLAGS) $(DEFS) boggle.cpp boggle-driver.cpp -o $@
