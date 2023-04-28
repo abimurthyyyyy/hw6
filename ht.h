@@ -464,12 +464,10 @@ void HashTable<K,V,Prober,Hash,KEqual>::resize()
 	this->table_.resize(CAPACITIES[mIndex_],nullptr);
 	for (typename HashTable<K,V,Prober,Hash,KEqual>::HashItem* h:oldtable){
 		if (h){
-			if (h->deleted){
-				delete h;
-			}
-			else{
+			if (!h->deleted){
 				this->insert(h->item);
-			}
+			}		
+			delete h;
 		}
 	}
 
